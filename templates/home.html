@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Telecom Investigation System</title>
 </head>
@@ -8,7 +9,64 @@
 
 <h1>Telecom Investigation System</h1>
 
-<p>Project setup successful.</p>
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <h3>Upload CDR File</h3>
+
+    <input type="file" name="cdr_file" required>
+
+    <br><br>
+
+    <h3>Upload IPDR File</h3>
+
+    <input type="file" name="ipdr_file" required>
+
+    <br><br>
+
+    <button type="submit">
+
+        Analyze
+
+    </button>
+
+</form>
+
+<hr>
+
+{% if cdr_results %}
+
+<h2>Analysis Completed</h2>
+
+<h3>{{ cdr_results.report_name }}</h3>
+
+<table border="1">
+
+<tr>
+    <th>Contact Number</th>
+    <th>Total Interactions</th>
+</tr>
+
+{% for number,count in cdr_results.top_contacts.items %}
+
+<tr>
+    <td>{{ number }}</td>
+    <td>{{ count }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<p>{{ cdr_results.status }}</p>
+
+<p>{{ ipdr_results.status }}</p>
+
+<p>{{ combined_results.status }}</p>
+
+{% endif %}
 
 </body>
+
 </html>
