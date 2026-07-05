@@ -21,23 +21,32 @@ def home(request):
             pd.read_excel(ipdr_file, header=8)
         )
 
-        print(cdr_df.columns.tolist())
-        print(ipdr_df.columns.tolist())
+        try:
 
-        results = generate_all_reports(
-            cdr_df,
-            ipdr_df
-        )
+            results = generate_all_reports(
+                cdr_df,
+                ipdr_df
+            )
 
-        return render(
-            request,
-            "home.html",
-            {
-            "cdr_results": results["cdr"][0],
-              "ipdr_results": results["ipdr"][0],
-              "combined_results": results["combined"][0],
-            }
-        )
+            return render(
+                request,
+                "home.html",
+                {
+                    "cdr_results": results["cdr"][0],
+                    "ipdr_results": results["ipdr"][0],
+                    "combined_results": results["combined"][0],
+                }
+            )
+
+        except Exception as e:
+
+            return render(
+                request,
+                "home.html",
+                {
+                    "error": str(e)
+                }
+            )
         
 
     return render(request, "home.html")

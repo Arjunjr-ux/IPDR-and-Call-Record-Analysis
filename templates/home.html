@@ -35,6 +35,14 @@
 
 <hr>
 
+{% if error %}
+
+<h2 style="color:red;">
+    {{ error }}
+</h2>
+
+{% endif %}
+
 {% if cdr_results %}
 
 <h2>Analysis Completed</h2>
