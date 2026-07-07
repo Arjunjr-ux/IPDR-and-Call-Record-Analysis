@@ -18,4 +18,4 @@ os.makedirs("output", exist_ok=True)
 for name, report in reports.items():
     report.to_csv(f"output/{name}.csv", index=False)
 
-print("Report 01 generated successfully!")
+print(f"{len(reports)} IPDR reports generated successfully!")
