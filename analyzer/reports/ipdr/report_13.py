@@ -1,9 +1,35 @@
+import pandas as pd
+
+
 def generate(df):
     """
-    Report 13: Roaming Summary
+    Official Report 13
+    Roaming, Circle & Cell Location (CGI) Analysis
     """
 
-    return {
-        "Roaming Indicator": df["Roaming Circle Indicator"].value_counts(),
-        "Roaming Circle": df["Roaming Circle"].value_counts()
-    }
+    report = df[
+        [
+            "Landline/MSISDN for Internet Access",
+            "Time1",
+            "Roaming Circle Indicator",
+            "Roaming Circle",
+            "CGI ID",
+        ]
+    ].copy()
+
+    report = report.rename(
+        columns={
+            "Landline/MSISDN for Internet Access": "Subscriber",
+            "Time1": "Activity Time",
+            "Roaming Circle Indicator": "Roaming Status",
+            "Roaming Circle": "Circle",
+            "CGI ID": "CGI",
+        }
+    )
+
+    report = report.sort_values(
+        by=["Subscriber", "Activity Time"],
+        ignore_index=True,
+    )
+
+    return report

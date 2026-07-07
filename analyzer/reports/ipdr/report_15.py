@@ -1,21 +1,52 @@
+import pandas as pd
+
+
 def generate(df):
     """
-    Report 15: Overall IPDR Summary
+    Official Report 15
+    Temporal Traffic Pattern, Burst & NAT Allocation Analysis
     """
 
-    # Safely get the most common APN
-    apn_mode = df["Access Point Name"].mode()
+    report = df[
+        [
+            "Time1",
+            "Landline/MSISDN for Internet Access",
+            "Public IP Address",
+        ]
+    ].copy()
 
-    if len(apn_mode) > 0:
-        top_apn = apn_mode.iloc[0]
-    else:
-        top_apn = "No APN Data"
+    report = report.rename(
+        columns={
+            "Time1": "Activity Time",
+            "Landline/MSISDN for Internet Access": "Subscriber",
+            "Public IP Address": "Public IP",
+        }
+    )
 
-    return {
-        "Total Records": len(df),
-        "Unique Subscribers": df["Landline/MSISDN for Internet Access"].nunique(),
-        "Unique IMSI": df["IMSI"].nunique(),
-        "Unique Public IP": df["Public IP Address"].nunique(),
-        "Top APN": top_apn,
-        "Average Session Duration": df["Session Duration"].mean()
-    }
+    # Convert to datetime
+    report["Activity Time"] = pd.to_datetime(
+        report["Activity Time"],
+        dayfirst=True,
+        errors="coerce",
+    )
+
+    # Remove invalid timestamps
+    report = report.dropna(subset=["Activity Time"])
+
+    # Count sessions per timestamp
+    timeline = (
+        report.groupby("Activity Time")
+        .agg(
+            Total_Sessions=("Subscriber", "count"),
+            Unique_Subscribers=("Subscriber", "nunique"),
+            Public_IPs=("Public IP", "nunique"),
+        )
+        .reset_index()
+    )
+
+    timeline = timeline.sort_values(
+        by="Activity Time",
+        ignore_index=True,
+    )
+
+    return timeline
