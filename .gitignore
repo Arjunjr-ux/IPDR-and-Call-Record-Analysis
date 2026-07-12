@@ -1,9 +1,12 @@
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
 
 # Virtual environment
 venv/
+env/
+.venv/
 
 # Database
 db.sqlite3
@@ -19,3 +22,9 @@ media/
 
 # macOS
 .DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
