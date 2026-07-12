@@ -4,22 +4,15 @@ from analyzer.reports.combined.report_01 import generate as combined_report_01
 
 
 def generate_all_reports(cdr_df, ipdr_df):
+    
     results = {
-        "cdr": [],
-        "ipdr": [],
-        "combined": []
+    "cdr": None,
+    "ipdr": None,
+    "combined": None
     }
 
-    results["cdr"].append(
-        cdr_report_01(cdr_df)
-    )
-
-    results["ipdr"].append(
-        ipdr_report_01(ipdr_df)
-    )
-
-    results["combined"].append(
-        combined_report_01(cdr_df, ipdr_df)
-    )
+    results["cdr"] = cdr_report_01(cdr_df)
+    results["ipdr"] = ipdr_report_01(ipdr_df)
+    results["combined"] = combined_report_01(cdr_df, ipdr_df)
 
     return results

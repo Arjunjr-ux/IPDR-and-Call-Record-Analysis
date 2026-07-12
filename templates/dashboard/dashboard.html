@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Page Title -->
+
+    <div class="mb-4">
+
+        <h2 class="fw-bold text-white">
+
+            Dashboard
+
+        </h2>
+
+    </div>
+
+
+    <!-- Statistics Cards -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg">
+
+            <div class="card border-0 text-white p-4" style="background:#2563eb;">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <small>Total Files</small>
+
+                        <h2>{{ total_files }}</h2>
+
+                        <small>Uploaded Files</small>
+
+                    </div>
+
+                    <i class="bi bi-folder2-open-fill fs-1"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg">
+
+            <div class="card border-0 text-white p-4" style="background:#2563eb;">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <small>Total CDR</small>
+
+                        <h2>{{ cdr_count }}</h2>
+
+                        <small>Records Uploaded</small>
+
+                    </div>
+
+                    <i class="bi bi-telephone-fill fs-1"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg">
+
+            <div class="card border-0 text-white p-4" style="background:#16a34a;">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <small>Total IPDR</small>
+
+                        <h2>{{ ipdr_count }}</h2>
+
+                        <small>Network Records</small>
+
+                    </div>
+
+                    <i class="bi bi-wifi fs-1"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg">
+
+            <div class="card border-0 text-white p-4" style="background:#ea580c;">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <small>Reports</small>
+
+                        <h2>{{ report_count }}</h2>
+
+                        <small>Generated Reports</small>
+
+                    </div>
+
+                    <i class="bi bi-file-earmark-bar-graph-fill fs-1"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg">
+
+            <div class="card border-0 text-white p-4" style="background:#dc2626;">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <small>Data Quality</small>
+
+                        <h2>100%</h2>
+
+                        <small>Quality Score</small>
+
+                    </div>
+
+                    <i class="bi bi-shield-check fs-1"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Upload Trend + Quick Actions -->
+
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+
+            <div class="card p-4">
+
+                <h5 class="mb-4">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                    Upload Trend
+
+                </h5>
+
+                <div style="height:320px">
+
+                <canvas id="uploadTrend"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+        <div class="card p-4">
+
+        <h5 class="mb-4">
+
+        ⚡ Quick Actions
+
+        </h5>
+
+        <div class="d-grid gap-3">
+
+        <a href="/upload/" class="btn btn-primary btn-lg">
+
+        <i class="bi bi-upload"></i>
+
+        Upload CDR
+
+        </a>
+
+        <a href="/upload/" class="btn btn-success btn-lg">
+
+        <i class="bi bi-globe"></i>
+
+        Upload IPDR
+
+        </a>
+
+        <a href="#" class="btn btn-warning btn-lg">
+
+        <i class="bi bi-brush"></i>
+
+        Start Cleaning
+
+        </a>
+
+        <a href="/reports/" class="btn btn-danger btn-lg">
+
+        <i class="bi bi-file-earmark-text"></i>
+
+        Generate Reports
+
+        </a>
+
+        <a href="#" class="btn btn-info btn-lg text-white">
+
+        <i class="bi bi-bar-chart-line-fill"></i>
+
+        Analytics
+
+        </a>
+
+        </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+new Chart(document.getElementById("uploadTrend"), {
+    type: "line",
+
+    data: {
+        labels: ["1 Jul","2 Jul","3 Jul","4 Jul","5 Jul","6 Jul","7 Jul"],
+
+        datasets: [
+
+            {
+                label: "CDR",
+
+                data: [150,320,480,430,700,860,1200],
+
+                borderColor: "#3b82f6",
+
+                backgroundColor: "rgba(59,130,246,.12)",
+
+                fill: true,
+
+                tension: .45,
+
+                borderWidth: 3,
+
+                pointRadius: 3
+            },
+
+            {
+                label: "IPDR",
+
+                data: [120,250,390,520,650,800,1100],
+
+                borderColor: "#22c55e",
+
+                backgroundColor: "rgba(34,197,94,.10)",
+
+                fill: false,
+
+                tension: .45,
+
+                borderWidth: 3,
+
+                pointRadius: 3
+            }
+
+        ]
+    },
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        plugins: {
+
+            legend: {
+
+                position: "top",
+
+                labels: {
+
+                    color: "#555",
+
+                    usePointStyle: true
+                }
+
+            }
+
+        },
+
+        scales: {
+
+            x: {
+
+                grid: {
+
+                    color: "#eeeeee"
+
+                }
+
+            },
+
+            y: {
+
+                grid: {
+
+                    color: "#eeeeee"
+
+                },
+
+                beginAtZero: true
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

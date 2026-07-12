@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+
+        <h2 class="fw-bold text-white">
+            Risk Score Analysis
+        </h2>
+
+        <p class="text-secondary">
+            Identify high-risk mobile numbers based on investigation metrics.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Summary -->
+
+        <div class="col-lg-3">
+
+            <div class="card bg-danger text-white p-4">
+
+                <h5>High Risk</h5>
+
+                <h1 id="highRisk">12</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="card bg-warning text-dark p-4">
+
+                <h5>Medium Risk</h5>
+
+                <h1 id="mediumRisk">26</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="card bg-success text-white p-4">
+
+                <h5>Low Risk</h5>
+
+                <h1 id="lowRisk">54</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="card bg-primary text-white p-4">
+
+                <h5>Total Numbers</h5>
+
+                <h1 id="totalNumbers">92</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card mt-4 p-4">
+
+        <h4 class="mb-3">
+
+            Investigated Numbers
+
+        </h4>
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Phone Number</th>
+
+                        <th>IMEI</th>
+
+                        <th>Calls</th>
+
+                        <th>Unique Contacts</th>
+
+                        <th>Risk</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>9876543210</td>
+
+                        <td>865421987654123</td>
+
+                        <td>486</td>
+
+                        <td>112</td>
+
+                        <td>
+                            <span class="badge bg-danger">
+                                92%
+                            </span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>9988776655</td>
+
+                        <td>865421987654122</td>
+
+                        <td>230</td>
+
+                        <td>61</td>
+
+                        <td>
+                            <span class="badge bg-warning">
+                                63%
+                            </span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>8899776655</td>
+
+                        <td>865421987654111</td>
+
+                        <td>52</td>
+
+                        <td>18</td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                21%
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

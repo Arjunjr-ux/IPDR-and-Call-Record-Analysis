@@ -23,8 +23,24 @@ from analyzer import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home),
+
+    path("", views.home, name="dashboard"),
+
+    path("upload/", views.upload, name="upload"),
+
+    path("reports/", views.reports, name="reports"),
+    
+    path("reports/cdr/", views.cdr_report, name="cdr_report"),
+    
+    path("reports/ipdr/", views.ipdr_report, name="ipdr_report"),
+    
+    path("reports/combined/", views.combined_report, name="combined_report"),
+
+    path("risk/", views.risk, name="risk"),
+
+    path("tables/", views.tables, name="tables"),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

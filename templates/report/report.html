@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+Generated Reports
+
+</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h5>
+
+                    CDR Report
+
+                </h5>
+
+                <hr>
+
+            {% if cdr_results %}
+
+                <p class="text-success">
+
+                ✔ Report Generated Successfully
+
+                </p>
+
+                <p>
+
+                <strong>{{ cdr_results.report_name }}</strong>
+
+                </p>
+
+                <a href="{% url 'cdr_report' %}" class="btn btn-primary">
+                    View Report
+                </a>
+
+            {% else %}
+
+                <p class="text-danger">
+
+                No Report Available
+
+                </p>
+
+            {% endif %}    
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h5>
+
+                    IPDR Report
+
+                </h5>
+
+                <hr>
+
+                {% if ipdr_results %}
+
+                    <p class="text-success">
+                    ✔ Report Generated Successfully
+                    </p>
+
+                    <p>
+                    <strong>{{ ipdr_results.report_name }}</strong>
+                    </p>
+
+                    <a href="{% url 'ipdr_report' %}" class="btn btn-success">
+                        View Report
+                    </a>
+
+                {% else %}
+
+                    <p class="text-danger">
+                    No Report Available
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h5>
+
+                    Combined Report
+
+                </h5>
+
+                <hr>
+
+                {% if combined_results %}
+
+                    <p class="text-success">
+                    ✔ Report Generated Successfully
+                    </p>
+
+                    <p>
+                    <strong>{{ combined_results.report_name }}</strong>
+                    </p>
+
+                    <a href="{% url 'combined_report' %}" class="btn btn-warning">
+                        View Report
+                    </a>
+
+                {% else %}
+
+                    <p class="text-danger">
+                    No Report Available
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

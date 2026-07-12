@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+CDR Investigation Report
+</h2>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h4>Top Associate Report</h4>
+
+<hr>
+
+{% if cdr_results %}
+
+<h4>
+
+{{ cdr_results.report_name }}
+
+</h4>
+
+<table class="table table-striped mt-4">
+
+<thead>
+
+<tr>
+
+<th>Contact Number</th>
+
+<th>Total Interactions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for number, count in cdr_results.top_contacts.items %}
+
+<tr>
+
+<td>{{ number }}</td>
+
+<td>{{ count }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}
