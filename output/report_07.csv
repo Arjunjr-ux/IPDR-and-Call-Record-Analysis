@@ -1,0 +1,63 @@
+Risk Category,Subscriber,Suspicious Sessions
+BitTorrent / P2P,918955071033,46
+Encrypted Chat (XMPP),916369843790,3
+Encrypted Chat (XMPP),919345110313,3
+Encrypted Chat (XMPP),916381273139,2
+Encrypted Chat (XMPP),916381638728,2
+Encrypted Chat (XMPP),916383118490,2
+Encrypted Chat (XMPP),918072706417,2
+Encrypted Chat (XMPP),918610971068,2
+Encrypted Chat (XMPP),919342671794,2
+Encrypted Chat (XMPP),919361049993,2
+Encrypted Chat (XMPP),919853369374,2
+Encrypted Chat (XMPP),917010036861,1
+Encrypted Chat (XMPP),917010832896,1
+Encrypted Chat (XMPP),917092884602,1
+Encrypted Chat (XMPP),917695868552,1
+Encrypted Chat (XMPP),917823063309,1
+Encrypted Chat (XMPP),917904088740,1
+Encrypted Chat (XMPP),918248315377,1
+Encrypted Chat (XMPP),918248394483,1
+Encrypted Chat (XMPP),918248425780,1
+Encrypted Chat (XMPP),918489894887,1
+Encrypted Chat (XMPP),918610205231,1
+Encrypted Chat (XMPP),918610624013,1
+Encrypted Chat (XMPP),918610681312,1
+Encrypted Chat (XMPP),918610790703,1
+Encrypted Chat (XMPP),918667261591,1
+Encrypted Chat (XMPP),918838245751,1
+Encrypted Chat (XMPP),918870145368,1
+Encrypted Chat (XMPP),918955071033,1
+Encrypted Chat (XMPP),919025507810,1
+Encrypted Chat (XMPP),919080054872,1
+Encrypted Chat (XMPP),919345372863,1
+Encrypted Chat (XMPP),919833148157,1
+Encrypted DNS (DoT),919342076450,18
+Encrypted DNS (DoT),916379138681,2
+Malformed / Uncommon Port,919361606379,57
+Malformed / Uncommon Port,916381273139,12
+Malformed / Uncommon Port,918072838075,1
+Messaging Protocol (4222),919345570121,37
+Proxy / Alternate HTTP,918072838075,24
+Proxy / Alternate HTTP,918248315377,3
+Proxy / Alternate HTTP,919361606379,3
+Proxy / Alternate HTTP,916383118490,2
+Proxy / Alternate HTTP,918144863303,2
+Proxy / Alternate HTTP,918778591691,2
+Proxy / Alternate HTTP,919095314880,2
+Proxy / Alternate HTTP,919976672491,2
+Proxy / Alternate HTTP,916363110058,1
+Proxy / Alternate HTTP,916374800734,1
+Proxy / Alternate HTTP,916379575385,1
+Proxy / Alternate HTTP,916381252728,1
+Proxy / Alternate HTTP,917010353217,1
+Proxy / Alternate HTTP,917010751563,1
+Proxy / Alternate HTTP,917904088740,1
+Proxy / Alternate HTTP,917904798406,1
+Proxy / Alternate HTTP,918072570419,1
+Proxy / Alternate HTTP,918122091664,1
+Proxy / Alternate HTTP,918248102761,1
+Proxy / Alternate HTTP,918610205231,1
+Proxy / Alternate HTTP,919025507810,1
+Proxy / Alternate HTTP,919870855433,1
+Proxy / Alternate HTTP,919943873038,1
